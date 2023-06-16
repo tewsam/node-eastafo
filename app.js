@@ -35,8 +35,8 @@ app.get('/drivers', async(req,res)=>{
 		// // res.status(200).json(drivers[0]['name'])
 		// res.render('about', {dd:drivers})
 
-		Afromodel.find().then((x)=>{
-			res.render('about', {x})
+		Afromodel.find().sort({createdAt: -1}).then((x)=>{
+			res.render('drivers', {x})
 		})
 
 
@@ -88,5 +88,5 @@ mongoose.connect(
         console.log(error);
     });
 
-const port=3003
+const port=3001
 app.listen(port, ()=>console.info(`Listening on port ${port}`))

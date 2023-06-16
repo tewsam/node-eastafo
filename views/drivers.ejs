@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<%- include('includes/links') %>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+	
+<%- include('includes/head') %>
+	
+	<!-- <img src="img/EritreanBird.jpeg" alt=""> -->
+ <p/>
+ <ul>
+	<% x.forEach((y)=> { %>
+<li><img src="img/driver.png" width="30" height="30" alt=""></li>
+ <li><%= y.name %>  <%= y.father %> </li>
+ <li>   <%= y.city %></li>
+<li><%= y.email %>   </li>
+<li id="map"></li>
+ --------------------------
+
+<% }) %>
+	</ul>
+
+
+	 <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer
+    ></script>
+
+	</body>
+	</html>
