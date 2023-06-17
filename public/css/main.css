@@ -35,6 +35,33 @@
 }
 
 
+.drivers-list{
+	width: 70%;
+}
+.drivers-list li{
+	list-style: none;
+}
+
+.drivers-last{
+	border-bottom: 1px solid silver;
+	padding-bottom: 6px;
+	margin-bottom: 8px;
+}
+
+a{text-decoration: none;}
+
+table{
+	
+	width: 30%;
+}
+
+td{
+	border-bottom: 1pt solid silver;
+	padding: 10px;
+}
+
+
+
 
 
 

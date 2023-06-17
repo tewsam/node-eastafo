@@ -14,17 +14,48 @@
 	
 	<!-- <img src="img/EritreanBird.jpeg" alt=""> -->
  <p/>
- <ul>
-	<% x.forEach((y)=> { %>
-<li><img src="img/driver.png" width="30" height="30" alt=""></li>
- <li><%= y.name %>  <%= y.father %> </li>
- <li>   <%= y.city %></li>
-<li><%= y.email %>   </li>
 
- --------------------------
+ 
+ <table >
+  <% x.forEach((y)=> { %>
+ 
+    <tr>
+      <th>
+      	<td><a><img src="img/driver3.png" width="75" height="75" alt=""> </a></td>
+      	<td>
+      		Name: <a href="#"><%= y.name %>  <%= y.father %></a> <br/>
+      		 Location <a href="#"><%= y.city %></a> <br/>
+      		Email: <%= y.email %> <br/> 
+      		<div class="request-driver"><a href="#">Request</a> </div>
+
+      	</td>
+      
+      </th>
+    </tr>
+  <% }) %>
+</table>
+
+
+
+
+
+
+
+ <!-- <ul class="drivers-list">
+
+	<% x.forEach((y)=> { %>
+<img src="img/driver.png" width="50" height="50" alt="">
+ 
+ <li>Name: <a href="#"><%= y.name %>  <%= y.father %> </a></li>
+ <li> Current Location <a href="#"><%= y.city %></a></li>
+<li>Email: <%= y.email %>   </li>
+<li class="drivers-last"><a href="#">Request</a>    </li>
+
+
 
 <% }) %>
-	</ul>
+	</ul> -->
+
 
 
 	
