@@ -49,7 +49,9 @@ app.get('/drivers', async(req,res)=>{
 app.get('/about', (req,res)=> {
 	res.render('about')
 	// res.sendFile(__dirname + '/views/index.html')
-})
+});
+
+
 
 
 app.post('/driver', async(req, res) => {
@@ -75,6 +77,21 @@ app.post('/driver', async(req, res) => {
         res.status(500).json({message: error.message})
     }
 });
+
+app.get('/delete/:id', async(req, res) =>{
+    try {
+        const {id} = req.params;
+        const drivedel = await Afromodel.findByIdAndDelete(id);
+        if(!drivedel){
+            return res.status(404).json({message: `cannot find any product with ID ${id}`})
+        }
+        res.status(200).json(drivedel);
+        
+        
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
 
 
 mongoose.set("strictQuery", false)
