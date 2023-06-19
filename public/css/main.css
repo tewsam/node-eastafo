@@ -1,6 +1,7 @@
 
  body{
  	background-color:#F0FFFF; 
+	 
  }
 
  .loginmain li, .reginput li{
@@ -35,32 +36,62 @@
 }
 
 
-.drivers-list{
+/* .drivers-list{
 	width: 70%;
 }
-.drivers-list li{
-	list-style: none;
-}
+
 
 .drivers-last{
 	border-bottom: 1px solid silver;
 	padding-bottom: 6px;
 	margin-bottom: 8px;
+} */
+
+ul li{
+	list-style: none;
 }
 
 a{text-decoration: none;}
 
-table{
+/* .driverslist{
 	
-	width: 30%;
+	width: 100%;
+	background-color: silver;
+} */
+
+.driverslist td:last-child{
+	padding-left: 5px;
+	width: 80%;
+	/* background-color: red; */
 }
 
-td{
-	border-bottom: 1pt solid silver;
-	padding: 10px;
+.driverslist td{
+	border-bottom: 1pt solid rgb(235, 223, 223);
+	padding:4px;
 }
 
+.eastafro .col{
+	background-color: aqua; 
+	padding-top: 10px;
+	
+}
+.eastafro {
+	font-weight: 200;
+	
+}
 
+.eatlogo {
+	font-family: "Audiowide", sans-serif;
+	color:red
+  }
+  .eatlogo:hover{
+	color: green;
+  }
+
+  .truck-icon{
+	width: 300px;
+	height: 200px;
+  }
 
 
 
