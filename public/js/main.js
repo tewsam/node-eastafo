@@ -8,10 +8,17 @@ $(()=>{
 	})
 
 
-	$('.register-now').on('click', ()=>{
+	$('.register-driver').on('click', ()=>{
 	
 
-		$('.register-now, .loginmain').hide();
-		$('.reginput').slideDown();
+		$('.register-driver, .loginmain').hide();
+		$('.reg-driver').slideDown();
+	});
+
+	$('.register-company').on('click', ()=>{
+	
+
+		$('.register-company, .loginmain').hide();
+		$('.reg-company').slideDown();
 	})
 })

@@ -3,8 +3,9 @@
  	background-color:#F0FFFF; 
 	 
  }
+ .navbar{background-color: #ADD8E6;}
 
- .loginmain li, .reginput li{
+ .loginmain li, .reg-driver li, .reg-company li{
 	/*background-color:gray;*/
 	padding:3px;
 	list-style:none;
@@ -13,18 +14,18 @@
     
 	}
 
-	 .loginmain input, .reginput input{
+	 .loginmain input, .reg-driver input{
 		border-radius: 4px;
 		padding: 5px;
 		width: 200px;
 
 	}
-.reginput{
+.reg-driver, .reg-company{
 	display: none;
 	margin-top: 50px;
 }
 
-.register-now{
+.register-driver, .register-company{
 	
 	cursor: pointer;
 	margin-top: 20px;

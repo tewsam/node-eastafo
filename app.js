@@ -2,7 +2,8 @@ const express= require('express')
 const app= express()
 const mongoose= require("mongoose")
 const bodyParser= require("body-parser")
-const Afromodel = require("./models/eastafro")
+const driverModel = require("./models/driver")
+const companyModel= require("./models/company")
 
 app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/css'))
@@ -26,7 +27,8 @@ app.get('/login', (req,res)=> {
 app.get('/', (req,res)=> {
 	res.render('index')
 	// res.sendFile(__dirname + '/views/index.html')
-})
+});
+
 app.get('/drivers', async(req,res)=>{
 
 	try{
@@ -35,8 +37,26 @@ app.get('/drivers', async(req,res)=>{
 		// // res.status(200).json(drivers[0]['name'])
 		// res.render('about', {dd:drivers})
 
-		Afromodel.find().sort({createdAt: -1}).then((x)=>{
+		driverModel.find().sort({createdAt: -1}).then((x)=>{
 			res.render('drivers', {x})
+		})
+
+
+	}catch(error){
+		res.status(500).json({message: error.message})
+	}
+});
+
+app.get('/load', async(req,res)=>{
+
+	try{
+
+		// const drivers= await Afromodel.find();
+		// // res.status(200).json(drivers[0]['name'])
+		// res.render('about', {dd:drivers})
+
+		companyModel.find().sort({createdAt: -1}).then((x)=>{
+			res.render('load', {x})
 		})
 
 
@@ -63,13 +83,14 @@ app.post('/driver', async(req, res) => {
         license: req.body.license,
         car: req.body.car,
         email: req.body.email,
+        tel: req.body.tel,
         password: req.body.password
 
 
     }
 
     try {
-        const afrodriver = await Afromodel.create(req.body)
+        const afrodriver = await driverModel.create(req.body)
         res.status(200).json(userData);
         
     } catch (error) {
@@ -78,10 +99,54 @@ app.post('/driver', async(req, res) => {
     }
 });
 
+//post load
+app.post('/load', async(req, res) => {
+    var userData = {
+        name: req.body.name,
+        father: req.body.father,
+        country: req.body.country,
+        city: req.body.city,
+        loadtype: req.body.loadtype,
+        companyname: req.body.companyname,
+        email: req.body.email,
+        tel: req.body.tel,
+        password: req.body.password
+
+
+    }
+
+    try {
+        const loadbody = await companyModel.create(req.body)
+        res.status(200).json(userData);
+        
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({message: error.message})
+    }
+});
+
+// update a product
+app.get('/update/:id', async(req, res) => {
+    try {
+        const {id} = req.params;
+        const upafro = await driverModel.findByIdAndUpdate(id, req.body);
+        // we cannot find any product in database
+        if(!upafro){
+            return res.status(404).json({message: `cannot find any product with ID ${id}`})
+        }
+        const updatedDriver = await driverModel.findById(id);
+        res.status(200).json(updatedDriver);
+        
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+
+
 app.get('/delete/:id', async(req, res) =>{
     try {
         const {id} = req.params;
-        const drivedel = await Afromodel.findByIdAndDelete(id);
+        const drivedel = await driverModel.findByIdAndDelete(id);
         if(!drivedel){
             return res.status(404).json({message: `cannot find any product with ID ${id}`})
         }
@@ -91,7 +156,7 @@ app.get('/delete/:id', async(req, res) =>{
     } catch (error) {
         res.status(500).json({message: error.message})
     }
-})
+});
 
 
 mongoose.set("strictQuery", false)

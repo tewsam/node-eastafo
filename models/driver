@@ -1,0 +1,67 @@
+const afro = require('mongoose')
+
+const eastafroschema= afro.Schema(
+
+{
+
+name : {
+	type: String,
+	required: [true, 'Please enter your name']
+
+},
+father : {
+	type: String,
+	required: [true, 'Please enter your father\'s name']
+
+},
+license : {
+	type: String,
+	required: [true, 'Please enter your license']
+
+},
+
+country : {
+	type: String,
+	required: [true, 'Please enter name of your country']
+
+},
+city : {
+	type: String,
+	required: [true, 'Please enter name of your city']
+
+},
+car : {
+	type: String,
+	required: [true, 'Please enter type of your car']
+
+},
+email : {
+	type: String,
+	required: [true, 'Please enter  your email']
+
+},
+tel : {
+	type: Number,
+	required: true
+
+},
+
+password : {
+	type: String,
+	required: [true, 'Please enter password']
+
+}
+
+
+},
+{
+	timestamps: true
+}
+
+
+	)
+
+
+
+const eastafro= afro.model('Eastafro', eastafroschema)
+module.exports = eastafro

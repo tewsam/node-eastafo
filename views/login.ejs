@@ -25,7 +25,8 @@
 		<li><input type="text" placeholder="email" class="email-login"></li>
 		<li><input type="password" placeholder="password" class="password-login"></li>
 		<li><input type="submit" class="login-submit"></li>
-		<li class="register-now">Register</li>
+		<li class="register-driver">Register driver</li>
+		<li class="register-company">Register Company</li>
 	</ui>
 
 </div>
@@ -39,8 +40,8 @@
 
 <div class="h-100 d-flex align-items-center justify-content-center">
 <!-- <div class="row register-now flex-column">Register Now</div> -->
-	<ui class="reginput">
-		<h3>Register</h3>
+	<ui class="reg-driver">
+		<h3>Register driver</h3>
 		<form action="/driver" method="post">
 		<li><input type="text" name="name" placeholder="Name"></li>
 		<li><input type="text" name="father" placeholder="Father's name"></li>
@@ -49,6 +50,7 @@
 		<li><input type="text" name="city" placeholder="City"></li>
 		<li><input type="text" name="car" placeholder="Car brand"></li>
 		<li><input type="text" name="email" placeholder="email"></li>
+		<li><input type="number" name="tel" placeholder="Tel."></li>
 		<li><input type="password" name="password" placeholder="password"></li>
 		<li><input type="submit" ></li>
 		</form>
@@ -56,6 +58,30 @@
 
 	
 </div>
+
+
+
+
+<div class="h-100 d-flex align-items-center justify-content-center">
+	<!-- <div class="row register-now flex-column">Register Now</div> -->
+		<ui class="reg-company">
+			<h3>Register Company</h3>
+			<form action="/load" method="post">
+			<li><input type="text" name="name" placeholder="Name"></li>
+			<li><input type="text" name="father" placeholder="Father's name"></li>
+			<li><input type="text" name="loadtype" placeholder="Load Type"></li>
+			<li><input type="text" name="country" placeholder="Country"></li>
+			<li><input type="text" name="city" placeholder="City"></li>
+			<li><input type="text" name="companyname" placeholder="company name"></li>
+			<li><input type="text" name="email" placeholder="email"></li>
+			<li><input type="number" name="tel" placeholder="Tel."></li>
+			<li><input type="password" name="password" placeholder="password"></li>
+			<li><input type="submit" ></li>
+			</form>
+		</ui>
+	
+		
+	</div>
 
 </body>
 </html>

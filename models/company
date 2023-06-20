@@ -1,6 +1,6 @@
-const afro = require('mongoose')
+const afroload = require('mongoose')
 
-const eastafroschema= afro.Schema(
+const loadschema= afroload.Schema(
 
 {
 
@@ -14,9 +14,9 @@ father : {
 	required: [true, 'Please enter your father\'s name']
 
 },
-license : {
+loadtype : {
 	type: String,
-	required: [true, 'Please enter your license']
+	required: false
 
 },
 
@@ -30,7 +30,7 @@ city : {
 	required: [true, 'Please enter name of your city']
 
 },
-car : {
+companyname : {
 	type: String,
 	required: [true, 'Please enter type of your car']
 
@@ -38,6 +38,11 @@ car : {
 email : {
 	type: String,
 	required: [true, 'Please enter  your email']
+
+},
+tel : {
+	type: Number,
+	required: true
 
 },
 
@@ -58,5 +63,5 @@ password : {
 
 
 
-const eastafro= afro.model('Eastafro', eastafroschema)
-module.exports = eastafro
+const company= afroload.model('loads', loadschema)
+module.exports = company
