@@ -76,8 +76,8 @@ app.get('/about', (req,res)=> {
 
 app.post('/driver', async(req, res) => {
     var userData = {
-        name: req.body.name,
-        father: req.body.father,
+        // name: req.body.name,
+        // father: req.body.father,
         country: req.body.country,
         city: req.body.city,
         license: req.body.license,
@@ -92,6 +92,7 @@ app.post('/driver', async(req, res) => {
     try {
         const afrodriver = await driverModel.create(req.body)
         res.status(200).json(userData);
+        res.redirect('/drivers')
         
     } catch (error) {
         console.log(error.message);
@@ -117,7 +118,8 @@ app.post('/load', async(req, res) => {
 
     try {
         const loadbody = await companyModel.create(req.body)
-        res.status(200).json(userData);
+        // res.status(200).json(userData);
+        res.redirect('/load');
         
     } catch (error) {
         console.log(error.message);
@@ -143,20 +145,39 @@ app.get('/update/:id', async(req, res) => {
 })
 
 
-app.get('/delete/:id', async(req, res) =>{
+app.get('/deldriver/:id', async(req, res) =>{
     try {
         const {id} = req.params;
         const drivedel = await driverModel.findByIdAndDelete(id);
         if(!drivedel){
             return res.status(404).json({message: `cannot find any product with ID ${id}`})
         }
-        res.status(200).json(drivedel);
+        // res.status(200).json(drivedel);
+        res.redirect('/drivers');
         
         
     } catch (error) {
         res.status(500).json({message: error.message})
     }
 });
+
+
+app.get('/delcompany/:id', async(req, res) =>{
+    try {
+        const {id} = req.params;
+        const companydel = await companyModel.findByIdAndDelete(id);
+        if(!companydel){
+            return res.status(404).json({message: `cannot find any product with ID ${id}`})
+        }
+        // res.status(200).json(companydel);
+        res.redirect('/load');
+        
+        
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+});
+
 
 
 mongoose.set("strictQuery", false)
