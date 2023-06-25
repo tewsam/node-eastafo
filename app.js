@@ -91,7 +91,7 @@ app.post('/driver', async(req, res) => {
 
     try {
         const afrodriver = await driverModel.create(req.body)
-        res.status(200).json(userData);
+        // res.status(200).json(userData);
         res.redirect('/drivers')
         
     } catch (error) {
